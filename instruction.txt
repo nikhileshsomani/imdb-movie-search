@@ -2,7 +2,6 @@
 
 
 
-******For Windows-----
 1. First, you need to install node.js from https://nodejs.org/en/download/.
 2. After installing node, open command prompt and type "node -v" in order to check whether node has been installed on your system.
 3. Then you need to install "gulp" globally. For this , just go to command prompt and type "npm install -g gulp".
