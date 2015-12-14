@@ -5,5 +5,5 @@
 1. First, you need to install node.js from https://nodejs.org/en/download/.
 2. After installing node, open command prompt and type "node -v" in order to check whether node has been installed on your system.
 3. Then you need to install "gulp" globally. For this , just go to command prompt and type "npm install -g gulp".
-4. After installing gulp globally, just go to the root folder(where gulpFile.js is located) and open command window in that folder.
-5. Just type "npm i" and then wait for it to install node-modules and after that type "gulp" and then you are good to go. 
+4. After installing gulp globally, just go to the root folder of the project(where gulpFile.js is located) and open command window in that folder.
+5. Just type "npm i" and then wait for it to install all node-modules and after that type "gulp" and then you are good to go. 

@@ -70,7 +70,12 @@
         $('input[type="submit"]').click(function(e) {
             e.preventDefault();
             var name = $('.search-input').val();
-            imdbSearch._getImdbID(name);
+            if (name !== "") {
+                imdbSearch._getImdbID(name);
+            }
+            else{
+                $('.search-box').addClass('invalid');
+            }
         });
         $('.search-input').keypress(function(e) {
             if (!e) e = window.event;
