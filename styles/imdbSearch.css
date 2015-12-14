@@ -1,0 +1,80 @@
+td{
+	width: 20%;	
+}
+
+.search-box {
+    position: relative;
+    height: 55px;
+    width: 25%;
+    border: 1px solid #dcdcdc;
+    margin: 2% 0 1% 35%;
+    background-color: #fff; 
+}
+
+.row:first-child{
+	background-color: #80DEEA;
+	margin-bottom: 1%;
+	padding-bottom: 1%;
+}
+#overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: #000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+}
+#loading {
+    width: 50px;
+    height: 57px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -28px 0 0 -25px;
+}
+.btn.btn-primary{
+	margin-left:45%;
+}
+.search-label {
+    position: absolute;
+    top: 10%;
+    left: 2%;
+    font-size: 1.2rem;
+    color: #1d84a0;
+    display: none;
+}
+
+.search-input {
+    position: absolute;
+    bottom: 5%;
+    left: 2%;
+    width: 98%;
+    border: 0;
+    outline: 0;
+}
+
+.search-input:focus + .search-label {
+    display: block;
+    -webkit-transition: display 0.3s;
+    -moz-transition: display 0.3s;
+    -ms-transition: display 0.3s;
+    transition: display 0.3s;
+}
+
+
+.list-group-item{
+	height: 200px;
+	overflow: auto;
+}
+
+
+.reviews{
+	width: 40%;
+}
+
+.review-title{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

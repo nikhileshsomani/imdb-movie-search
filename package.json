@@ -1,0 +1,24 @@
+{
+    "name": "gulpFile",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nikhileshsomani/imdb-movie-search.git"
+    },
+    "dependencies": {
+        "gulp": "^3.9.0",
+        "gulp-connect" : "*",
+        "nodemon":"*",
+        "express":"*",
+        "request":"*",
+        "gulp-webserver":"*"
+    },
+    "author": "nikhilesh somani",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nikhileshsomani/imdb-movie-search/issues"
+    },
+    "homepage": "https://github.com/nikhileshsomani/imdb-movie-search#readme"
+}

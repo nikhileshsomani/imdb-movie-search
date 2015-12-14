@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IMDB Top Movies Search</title>
+    <link rel=stylesheet href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/imdbSearch.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="search-box">
+                <input placeholder="Type the name of an actor/actress" type="text" class="search-input" title="Name">
+                <label class="search-label">Name Actor/Actress</label>
+            </div>
+            <input type="submit" name="" value="Submit" class="btn btn-primary">
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Movie Display Pic</th>
+                        <th>Name-Year-Genre--etc</th>
+                        <th>Rating</th>
+                        <th>Top Reviews</th>
+                    </tr>
+                </thead>
+                <tbody id="template-target">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script id="movie-template" type="text/x-handlebars-template">
+        {{#each Movies}}
+        <tr>
+            <td>
+                <img src={{movieImg}} alt="Movie Image">
+            </td>
+            <td>
+                <a target="_blank" href="{{movieImdbLink}}">{{movieName}} {{movieYear}}</a>
+                <h3>{{movieCertificate}} | {{movieRuntime}} | {{movieGenre}}</h3>
+            </td>
+            <td>
+                <h3>{{movieImdbRating}}/10 from {{votedBy}} users</h3>
+            </td>
+            <td class="reviews">
+                <ul class="list-group">
+                    {{#each movieReviews}}
+                    <li class="list-group-item">
+                        <h2 class="review-title">{{reviewTitle}}</h2>
+                        <p class="review-main">{{reviewMain}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+            </td>
+        </tr>
+        {{/each}}
+    </script>
+    <script src="libs/jquery.js"></script>
+    <script src="libs/handlebars.js"></script>
+    <script src="scripts/fetchData.js"></script>
+    <script src="scripts/renderData.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $('input[type="submit"]').click(function(e) {
+            e.preventDefault();
+            var name = $('.search-input').val();
+            imdbSearch._getImdbID(name);
+        })
+        $('.search-input').on('blur', function(e) {
+            if ($(event.currentTarget).val() !== "") {
+                $('.search-label').show();
+            }
+        })
+
+    })
+    </script>
+</body>
+
+</html>
