@@ -5,25 +5,46 @@
 
         topMovies: [],
 
+
+        /**
+
+        * This function fetches the  ImdbId ID of an actor/actress.
+        * @param{string} name - name of an actress/actor
+        * @return{none} none
+
+        */
         _getImdbID: function(name) {
             $.ajax({
                 context: this,
                 async: false,
                 url: 'http://localhost:3002/' + name,
                 method: 'GET',
+                beforeSend: function() {
+                    render.loading();
+                },
                 success: function(result) {
                     if (result == "No such actor/actress found.") {
+                        $('.search-box').addClass('invalid');
                         $('.search-input').val("").attr('placeholder', result);
+                        $('#overlay').remove();
                     } else {
-                        render.loading();
+                        $('.search-box').removeClass('invalid');
                         this._getTopMovies(result);
                     }
                 },
                 error: function(err) {
                     console.log(err);
-                }
+                },
             })
         },
+
+        /**
+
+        * This function fetches top 3Movies of the actor/actress IMDB-rating-wise.
+        * @param{String} nameID - imdb name ID of the actor/actress
+        * @return{none} none
+
+        */
 
         _getTopMovies: function(nameID) {
             this.topMovies = [];
@@ -71,7 +92,13 @@
             })
         },
 
+        /**
 
+        * This function fetches the top 3 reviews of all the movies fetched above.
+        * @param{none} none
+        * @return{none} none
+
+        */
         _getTopReviews: function() {
             var self = this;
             var reviews;
@@ -81,8 +108,8 @@
                     self.topMovies[i]['movieImdbLink'] = "http://www.imdb.com/title/" + self.topMovies[i]['movieId'] + "/"
                     $.ajax({
                         context: self,
-                        beforeSend: function() {
-                            $('#loader').show();
+                        complete: function() {
+                            $('#overlay').remove();
                         },
                         url: 'http://localhost:3002/review/' + obj['movieId'],
                         method: 'GET',
@@ -103,7 +130,7 @@
                             })
                         } else {
                             self.topMovies[i]['movieReviews'].push({
-                                'reviewMain':"No Reviews"
+                                'reviewMain': "No Reviews"
                             });
                             return;
                         }

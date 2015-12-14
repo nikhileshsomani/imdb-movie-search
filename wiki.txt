@@ -1,0 +1,32 @@
+
+
+* Requirements : 
+	/// Node and gulp should be installed in your system, for which the instructions are given in instruction.txt;
+	
+
+** Note : The movies are fetched on the basis of the IMDB-wise ratings. (for eg. Tom Hanks' top 3  movies IMDB rating-wise are fetched from this link---- "http://www.imdb.com/filmosearch?explore=title_type&role=nm0000158&ref_=filmo_ref_typ&sort=user_rating,desc&mode=detail&page=1&title_type=movie")
+
+
+
+*** Workflow ::: 
+	//// Gulp task defined in gulpFile.js runs first creating a local webserver and nodeserver.
+	//// Webserver task also opens the web-app in your browser automatically.
+	//// Searching by the name (Client side) ---
+									// imdbSearch._ImdbID first fetches you the imdb name Id by making an ajax call to the nodeserver ---> call goes to imdbSearch._getTopMovies with name ID as parameter.
+
+									// imdbSearch._getTopMovies then fetches top 3 movies of the name ID again by making an ajax call to the nodeserver ---> call goes to imdb._getTopReviews.
+
+									// imdb._getTopReviews fetch and stores the reviews.
+
+									// after all the data retrieval handlebars.js is used to render data. 
+
+
+	//// Server side process ---- There are 3 services on the server side. 
+
+					// First service is for the ImdbId which is an api by IMDB only.
+
+					// Second service sends an HTTP request to imdb with the nameID and fetches html content of top IMDB rating featured film of the actor/actress. Html is manipulated at the client side by imdb._getTopMovies using jquery.
+
+					// Third service again sends an HTTP request to imdb with the movie ID's and fetch the data in html form  which again is manipulated at the server side to extract reviews.
+
+	

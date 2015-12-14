@@ -17,7 +17,7 @@
                 <input placeholder="Type the name of an actor/actress" type="text" class="search-input" title="Name">
                 <label class="search-label">Name Actor/Actress</label>
             </div>
-            <input type="submit" name="" value="Submit" class="btn btn-primary">
+            <input type="submit" name="" value="Search" class="btn btn-primary">
         </div>
         <div class="row">
             <table class="table table-striped">
@@ -71,13 +71,14 @@
             e.preventDefault();
             var name = $('.search-input').val();
             imdbSearch._getImdbID(name);
-        })
-        $('.search-input').on('blur', function(e) {
-            if ($(event.currentTarget).val() !== "") {
-                $('.search-label').show();
+        });
+        $('.search-input').keypress(function(e) {
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            if (keyCode == '13') {
+                $('input[type="submit"]').click();
             }
-        })
-
+        });
     })
     </script>
 </body>

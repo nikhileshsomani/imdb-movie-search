@@ -1,5 +1,5 @@
-td{
-	width: 20%;	
+td {
+    width: 20%;
 }
 
 .search-box {
@@ -8,14 +8,15 @@ td{
     width: 25%;
     border: 1px solid #dcdcdc;
     margin: 2% 0 1% 35%;
-    background-color: #fff; 
+    background-color: #fff;
 }
 
-.row:first-child{
-	background-color: #80DEEA;
-	margin-bottom: 1%;
-	padding-bottom: 1%;
+.row:first-child {
+    background-color: #80DEEA;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
 }
+
 #overlay {
     position: absolute;
     left: 0;
@@ -26,6 +27,7 @@ td{
     opacity: 0.8;
     filter: alpha(opacity=80);
 }
+
 #loading {
     width: 50px;
     height: 57px;
@@ -34,16 +36,21 @@ td{
     left: 50%;
     margin: -28px 0 0 -25px;
 }
-.btn.btn-primary{
-	margin-left:45%;
+
+.btn.btn-primary {
+    margin-left: 45%;
 }
+
 .search-label {
     position: absolute;
     top: 10%;
     left: 2%;
     font-size: 1.2rem;
     color: #1d84a0;
-    display: none;
+}
+
+.invalid {
+    border: 3px solid #EF5350
 }
 
 .search-input {
@@ -55,26 +62,17 @@ td{
     outline: 0;
 }
 
-.search-input:focus + .search-label {
-    display: block;
-    -webkit-transition: display 0.3s;
-    -moz-transition: display 0.3s;
-    -ms-transition: display 0.3s;
-    transition: display 0.3s;
+.list-group-item {
+    margin: 2%;
+    height: 200px;
+    overflow: auto;
 }
 
-
-.list-group-item{
-	height: 200px;
-	overflow: auto;
+.reviews {
+    width: 40%;
 }
 
-
-.reviews{
-	width: 40%;
-}
-
-.review-title{
-	overflow: hidden;
-	text-overflow: ellipsis;
+.review-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
