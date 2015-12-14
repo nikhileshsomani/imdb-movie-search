@@ -1,12 +1,6 @@
 var gulp = require('gulp'),
-  //  connect = require('gulp-connect'),
-
     nodemon = require('nodemon'),
     webserver = require('gulp-webserver');
-
-//gulp.task('webserver', function() {
- //   connect.server();
-//});
 
 gulp.task('nodeserver', function() {
     nodemon({
